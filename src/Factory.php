@@ -21,7 +21,16 @@ class Factory
     public static function make($name, array $config)
     {
         $application = "sffi\\service\\{$name}";
-
+        $path = '';
+        if (function_exists('env')){
+            $path = env('app_path').'/config';
+        }else{
+            $path = __DIR__.'/../../../../config';
+        }
+        if (is_dir($path)){
+            $config = require $path.'/member.php';
+        }
+        var_dump($path);
         return new $application(...$config);
     }
 
