@@ -1,6 +1,8 @@
 <?php
 namespace sffi\util;
 
+use mysql_xdevapi\Exception;
+
 class RequestUtil
 {
     protected $baseUrl;
@@ -30,5 +32,23 @@ class RequestUtil
         $result = json_decode($result,true);
 
         return $result;
+    }
+
+    public static function getConfig($config)
+    {
+        if ($config) return $config;
+        if (function_exists('env')){
+            $path = env('app_path').'/../extend';
+        }else{
+            $path = __DIR__.'/../../../../../extend';
+        }
+        if (is_dir($path) && is_file($path.'/member.php')){
+            $mconf = require $path.'/member.php';
+            $config[0] = $mconf['baseurl'];
+            $config[1] = $mconf['request_key'];
+            return $config;
+        }else{
+            throw new Exception('缺少配置!');
+        }
     }
 }
