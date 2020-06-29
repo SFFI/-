@@ -5,8 +5,8 @@ namespace sffi\service;
 
 /**
  * Class AssetsType
- * @method addAssetsType($id, $assetsType)
- * @method frozenAssetsType($id, $assetsType)
+ * @method array addAssetsType($id, $assetsType)
+ * @method array frozenAssetsType($id, $assetsType)
  * @package sffi\service
  */
 class AssetsType extends Base

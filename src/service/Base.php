@@ -2,7 +2,9 @@
 
 
 namespace sffi\service;
-
+/**
+ * @author 鱼子 yuyi@cmrpt.com
+ */
 
 use sffi\util\RequestUtil;
 
@@ -31,8 +33,12 @@ class Base
             }
         }
         $requestType = ['query'=>'POST','valid'=>'POST','egiste'=>'POST','update'=>'POST'];
-        return $this->request->post('/'.($this->controler?:strtolower(basename(static::class))).'/'.$name, $args, $requestType[$name],
+        $result = $this->request->post('/'.($this->controler?:strtolower(basename(static::class))).'/'.$name, $args, $requestType[$name],
             ['PLATFORM-KEY'=>$this->key,'Content-type'=>'application/x-www-form-urlencoded']);
+        if ($result['code'] == 1){
+            return $result['data'];
+        }
+        throw new \Exception($result['msg']);
     }
 
     protected function getArg($name) {

@@ -7,11 +7,11 @@ use http\Encoding\Stream;
 
 /**
  * Class Assets
- * @method recharge($id,$assetsType,$assets,$orderid='')    充值
- * @method consume($id,$assetsType,$assets,$orderid='')     消费
- * @method frozen($id,$assetsType,$assets,$orderid='')      冻结
- * @method query($id,string $assetsType,$startTime='',$endTime='')             查询
- * @method batchQuery($id,array $assetsTypes,$startTime='',$endTime='')        批量查询
+ * @method array recharge($id,$assetsType,$assets,$orderid='')    充值
+ * @method array consume($id,$assetsType,$assets,$orderid='')     消费
+ * @method array frozen($id,$assetsType,$assets,$orderid='')      冻结
+ * @method array query($id,string $assetsType,$startTime='',$endTime='')             查询
+ * @method array batchQuery($id,array $assetsTypes,$startTime='',$endTime='')        批量查询
  * @package sffi\service
  */
 
