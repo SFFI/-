@@ -1,0 +1,11 @@
+{
+    "name": "sffi/member-plug",
+    "description": "A project for Company Member Center",
+    "authors": [
+        {
+            "name": "余熠",
+            "email": "yuyi@cmrpt.com"
+        }
+    ],
+    "require": {}
+}
