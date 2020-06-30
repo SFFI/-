@@ -32,8 +32,10 @@ class Base
                 $args[$item] = $arguments[$key];
             }
         }
+
         $requestType = ['query'=>'POST','valid'=>'POST','egiste'=>'POST','update'=>'POST'];
-        $result = $this->request->post('/'.($this->controler?:strtolower(basename(static::class))).'/'.$name, $args, $requestType[$name],
+        $result = $this->request->post('/'.($this->controler?:strtolower(basename(str_replace('\\','/',static::class)))).'/'.$name,
+            $args, $requestType[$name],
             ['PLATFORM-KEY'=>$this->key,'Content-type'=>'application/x-www-form-urlencoded']);
         if ($result['code'] == 1){
             return $result['data'];
