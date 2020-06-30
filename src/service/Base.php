@@ -33,9 +33,10 @@ class Base
             }
         }
 
-        $requestPost = ['query'];
-        $result = $this->request->post('/'.($this->controler?:strtolower(basename(str_replace('\\','/',static::class)))).'/'.$name,
-            $args, in_array($name,$requestPost) ? 'GET' : 'POST',
+        $controller = ($this->controler?:strtolower(basename(str_replace('\\','/',static::class))));
+        $requestPost = ['idcard.query'];
+        $result = $this->request->post('/'.$controller.'/'.$name,
+            $args, in_array($controller.'.'.$name,$requestPost) ? 'GET' : 'POST',
             ['PLATFORM-KEY'=>$this->key,'Content-type'=>'application/x-www-form-urlencoded']);
         if ($result['code'] == 1){
             return $result['data'];
