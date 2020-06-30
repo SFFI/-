@@ -41,7 +41,7 @@ class Base
         if ($result['code'] == 1){
             return $result['data'];
         }
-        throw new \Exception($result['msg']);
+        throw new \Exception($result['msg'],$result['code']);
     }
 
     protected function getArg($name) {
