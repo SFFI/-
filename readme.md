@@ -1,5 +1,5 @@
 
-添加配置文件member.php位于根目录下extends目录里
+添加配置文件member.php位于根目录下extend目录里
 ```php
 return [
     'baseurl'   =>  'baseurl',
