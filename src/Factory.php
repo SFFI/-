@@ -11,10 +11,10 @@ use sffi\util\RequestUtil;
 
 /**
  * Class Factory
- * @method static Assets Assets($url,$key)              资产
- * @method static Member Member($url,$key)              用户
- * @method static AssetsType AssetsType($url,$key)      资产类型
- * @method static Idcard Idcard($url,$key)              证件
+ * @method static Assets Assets($url='',$key='')              资产
+ * @method static Member Member($url='',$key='')              用户
+ * @method static AssetsType AssetsType($url='',$key='')      资产类型
+ * @method static Idcard Idcard($url='',$key='')              证件
  * @package sffi
  */
 class Factory

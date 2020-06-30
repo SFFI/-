@@ -1,4 +1,12 @@
 
+添加配置文件member.php位于根目录下extends目录里
+```php
+return [
+    'baseurl'   =>  'baseurl',
+    'request_key'       =>  'key'
+];
+```
+
 例子：调用资产查询
 ```php
 \sffi\Factory::Assets('http://YOU.DOMAIN.PATH','PLEASE INPUT YOU KEY')->query(1,'rmb');

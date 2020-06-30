@@ -2,5 +2,5 @@
 
 return [
     'baseurl'   =>  'baseurl',
-    'key'       =>  'key'
+    'request_key'       =>  'key'
 ];
