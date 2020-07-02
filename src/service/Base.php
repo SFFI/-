@@ -32,11 +32,15 @@ class Base
                 $args[$item] = $arguments[$key];
             }
         }
+        return $this->toPost($name,$args);
+    }
 
+    protected function toPost($name,$args)
+    {
         $controller = ($this->controler?:strtolower(basename(str_replace('\\','/',static::class))));
-        $requestPost = ['idcard.query'];
+        $requestGet = ['idcard.query'];
         $result = $this->request->post('/'.$controller.'/'.$name,
-            $args, in_array($controller.'.'.$name,$requestPost) ? 'GET' : 'POST',
+            $args, in_array($controller.'.'.$name,$requestGet) ? 'GET' : 'POST',
             ['PLATFORM-KEY'=>$this->key,'Content-type'=>'application/x-www-form-urlencoded']);
         if ($result['code'] == 1){
             return $result['data'];
