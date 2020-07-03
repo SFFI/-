@@ -8,7 +8,7 @@ namespace sffi\service;
 
 use sffi\util\RequestUtil;
 
-class Base
+class  Base
 {
     protected $request;
     protected $key;

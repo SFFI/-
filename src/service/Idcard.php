@@ -5,16 +5,20 @@ namespace sffi\service;
 
 /**
  * Class Idcard
- * @method array applyAuth($id) 申请认证
+ * @method array applyAuth($id,$card_id) 申请认证
  * @method array query($id)
+ * @method array createCard($idcard_no,$true_name)
  * @package sffi\service
  */
 class Idcard extends Base
 {
     protected $argApplyAuth = [
-        'id'
+        'id','card_id'
     ];
     protected $argQuery = [
         'id'
+    ];
+    protected $argCreateCard = [
+        'idcard_no','true_name'
     ];
 }
