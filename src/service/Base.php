@@ -32,10 +32,10 @@ class  Base
                 $args[$item] = $arguments[$key];
             }
         }
-        return $this->toPost($name,$args);
+        return $this->request($name,$args);
     }
 
-    protected function toPost($name,$args)
+    protected function request($name,$args)
     {
         $controller = ($this->controler?:strtolower(basename(str_replace('\\','/',static::class))));
         $requestGet = ['idcard.query'];
