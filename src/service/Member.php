@@ -36,4 +36,27 @@ class Member extends Base
         'card',
         'third'
     ];
+
+    /**
+     * 批量查询用户
+     * @param $where array 查询条件
+     */
+    public function batchQuery($where)
+    {
+        $keys = [];
+        $values = [];
+        $types = [];
+        foreach ($where as $key=>$item) {
+            if (is_array($item)){
+                array_push($keys, $item[0]);
+                array_push($types, $item[1]);
+                array_push($values, $item[2]);
+            }else{
+                array_push($keys, $key);
+                array_push($types, '=');
+                array_push($values, $item);
+            }
+        }
+        return $this->request(__FUNCTION__,['filterField'=>implode('|',$keys),'type'=>implode('|',$types),'filterValue'=>implode('|',$values)]);
+    }
 }

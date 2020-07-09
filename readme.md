@@ -1,4 +1,12 @@
 
+2020-07-09  新增批量查询接口
+```php
+$res = \sffi\Factory::Member()->batchQuery([
+        'username' => '188',
+        ['level', '>', 2]
+    ]);
+```
+
 添加配置文件member.php位于根目录下extend目录里
 ```php
 return [
@@ -11,6 +19,7 @@ return [
 ```php
 \sffi\Factory::Assets('http://YOU.DOMAIN.PATH','PLEASE INPUT YOU KEY')->query(1,'rmb');
 ```
+
 
 文档如下：
  <h1 class="curproject-name"> 会员中心 </h1> 
