@@ -6,6 +6,7 @@ namespace sffi;
 use sffi\service\Assets;
 use sffi\service\AssetsType;
 use sffi\service\Idcard;
+use sffi\service\Info;
 use sffi\service\Member;
 use sffi\util\RequestUtil;
 
@@ -15,6 +16,7 @@ use sffi\util\RequestUtil;
  * @method static Member Member($url='',$key='')              用户
  * @method static AssetsType AssetsType($url='',$key='')      资产类型
  * @method static Idcard Idcard($url='',$key='')              证件
+ * @method static Info Info($url='',$key='')              证件
  * @package sffi
  */
 class Factory
