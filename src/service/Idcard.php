@@ -31,6 +31,6 @@ class Idcard extends Base
         'id','card_id','extra'
     ];
     protected $argGetAuth = [
-        'true_name', 'idcard_no', 'extra'
+        'BizToken', 'IsNeedVideo', 'IsNeedBestFrame'
     ];
 }
