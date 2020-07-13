@@ -9,7 +9,7 @@ namespace sffi\service;
  * @method array query(int $id,int $card_id)
  * @method array createCard($idcard_no,$true_name)
  * @method array authCallback($BizToken)
- * @method array checkoutAuth(string $true_name, string $idcard_no, $extra='') 申请认证新
+ * @method array checkoutAuth(int $id,int $card_id, $extra='') 申请认证新
  * @method array getAuth(string $BizToken, bool $IsNeedVideo=false, bool $IsNeedBestFrame=false) 新视频核身
  * @package sffi\service
  */
@@ -28,7 +28,7 @@ class Idcard extends Base
         'BizToken'
     ];
     protected $argCheckoutAuth = [
-        'true_name', 'idcard_no', 'extra'
+        'id','card_id','extra'
     ];
     protected $argGetAuth = [
         'true_name', 'idcard_no', 'extra'
