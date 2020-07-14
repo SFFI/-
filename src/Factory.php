@@ -18,7 +18,7 @@ use sffi\util\RequestUtil;
  * @method static AssetsType AssetsType($url='',$key='')      资产类型
  * @method static Idcard Idcard($url='',$key='')              证件
  * @method static Info Info($url='',$key='')                  证件
- * @method static Third third($url='',$key='')                第三方信息
+ * @method static Third Third($url='',$key='')                第三方信息
  * @package sffi
  */
 class Factory
