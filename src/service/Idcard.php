@@ -11,7 +11,7 @@ namespace sffi\service;
  * @method array authCallback($BizToken)
  * @method array checkoutAuth(int $id,int $card_id, $extra='') 申请认证新
  * @method array getAuth(string $BizToken, bool $IsNeedVideo=false, bool $IsNeedBestFrame=false) 新视频核身
- * @method array argCallbackVideoResult(string $BizToken, int $ErrorCode) 新视频核身结果确认
+ * @method array callbackVideoResult(string $BizToken, int $ErrorCode) 新视频核身结果确认
  * @package sffi\service
  */
 class Idcard extends Base
