@@ -50,7 +50,7 @@ class Member extends Base
             if (is_array($item)){
                 array_push($keys, $item[0]);
                 array_push($types, $item[1]);
-                array_push($values, $item[2]);
+                array_push($values, is_array($item[2]) ? implode(',', $item[2]) : $item[2];
             }else{
                 array_push($keys, $key);
                 array_push($types, '=');
