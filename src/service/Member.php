@@ -11,7 +11,7 @@ use sffi\util\RequestUtil;
  * Class Member
  * @method array query($id,$type=[]) 查询用户
  * @method array registe($username,$password) 用户注册
- * @method array valid($id,$type=[]) 验证用户密码
+ * @method array valid($username,$password) 验证用户密码
  * @method array update($id,$member,$info,$card,$third) 更新用户信息
  * @method array updateUsername($id,$username,$new_username) 更新用户账号（危险操作）
  * @package sffi\service
