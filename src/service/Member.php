@@ -4,7 +4,7 @@
 namespace sffi\service;
 
 
-use sffi\util\RequestUtil;
+use Exception;
 
 
 /**
@@ -14,6 +14,7 @@ use sffi\util\RequestUtil;
  * @method array valid($username,$password) 验证用户密码
  * @method array update($id,$member,$info,$card,$third) 更新用户信息
  * @method array updateUsername($id,$username,$new_username) 更新用户账号（危险操作）
+ * @method array cancellationMember($id) 注销用户账号（危险操作）
  * @package sffi\service
  */
 class Member extends Base
@@ -38,6 +39,9 @@ class Member extends Base
         'third'
     ];
     protected $argUpdateUsername = [
+        'id'
+    ];
+    protected $argCancellationMember = [
         'id',
         'username',
         'new_username',
@@ -46,6 +50,8 @@ class Member extends Base
     /**
      * 批量查询用户
      * @param $where array 查询条件
+     * @return mixed
+     * @throws Exception
      */
     public function batchQuery($where)
     {
