@@ -39,12 +39,12 @@ class Member extends Base
         'third'
     ];
     protected $argUpdateUsername = [
-        'id'
-    ];
-    protected $argCancellationMember = [
         'id',
         'username',
-        'new_username',
+        'new_username'
+    ];
+    protected $argCancellationMember = [
+        'member_id',
     ];
 
     /**
