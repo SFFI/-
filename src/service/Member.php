@@ -15,6 +15,7 @@ use Exception;
  * @method array update($id,$member,$info,$card,$third) 更新用户信息
  * @method array updateUsername($id,$username,$new_username) 更新用户账号（危险操作）
  * @method array cancellationMember($id) 注销用户账号（危险操作）
+ * @method array alterPwd($id,$old_pwd,$new_pwd) 用户账号密码（危险操作）
  * @package sffi\service
  */
 class Member extends Base
@@ -45,6 +46,11 @@ class Member extends Base
     ];
     protected $argCancellationMember = [
         'member_id',
+    ];
+    protected $argAlterPwd = [
+        'id',
+        'old_pwd',
+        'new_pwd'
     ];
 
     /**
