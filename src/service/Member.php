@@ -55,11 +55,14 @@ class Member extends Base
 
     /**
      * 批量查询用户
-     * @param $where array 查询条件
+     * @param $where array|string 查询条件
+     * @param $with array 用户信息或者证件信息 info, card
+     * @param string $page 分页
+     * @param string $size 分页量
      * @return mixed
      * @throws Exception
      */
-    public function batchQuery($where)
+    public function batchQuery($where, $with = [], $page = '', $size = '')
     {
         $keys = [];
         $values = [];
@@ -75,6 +78,13 @@ class Member extends Base
                 array_push($values, $item);
             }
         }
-        return $this->request(__FUNCTION__,['filterField'=>implode('|',$keys),'type'=>implode('|',$types),'filterValue'=>implode('|',$values)]);
+        return $this->request(__FUNCTION__,[
+            'filterField'=>implode('|',$keys),
+            'type'=>implode('|',$types),
+            'filterValue'=>implode('|',$values),
+            'with'=>$with,
+            'page'=>$page,
+            'size'=>$size
+        ]);
     }
 }
