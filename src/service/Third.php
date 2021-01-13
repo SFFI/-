@@ -9,7 +9,7 @@ use sffi\util\RequestUtil;
 
 /**
  * Class Member
- * @method array query($unionid,$type='',$open_id='') 查询第三方信息
+ * @method array query($unionid='',$type='',$open_id='') 查询第三方信息
  * @method array create($unionid,$openid='',$type='',$nickname='',$head_img_url='',$province='',$city='',$country='') 新增第三方信息
  * @package sffi\service
  */
