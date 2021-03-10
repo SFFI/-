@@ -16,6 +16,8 @@ use Exception;
  * @method array updateUsername($id,$username,$new_username) 更新用户账号（危险操作）
  * @method array cancellationMember($id) 注销用户账号（危险操作）
  * @method array alterPwd($id,$old_pwd,$new_pwd) 用户账号密码（危险操作）
+ * @method array realVerify($id,$authentication) 实人认证
+ * @method array verifyResult($id,$business_type) 认证结果查询
  * @package sffi\service
  */
 class Member extends Base
@@ -51,6 +53,14 @@ class Member extends Base
         'id',
         'old_pwd',
         'new_pwd'
+    ];
+    protected $argRealVerify = [
+        'id',
+        'authentication'
+    ];
+    protected $argVerifyResult = [
+        'id',
+        'business_type'
     ];
 
     /**
