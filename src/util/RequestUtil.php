@@ -44,13 +44,13 @@ class RequestUtil
         if (is_dir($path) && is_file($path.'/member.php')){
             $mconf = require $path.'/member.php';
             if (!isset($mconf['baseurl']) || !isset($mconf['request_key'])){
-                throw new \Exception('缺少配置!');
+                throw new \Exception('CODE:81002 配置有误!');
             }
             $config[0] = $mconf['baseurl'];
             $config[1] = $mconf['request_key'];
             return $config;
         }else{
-            throw new \Exception('缺少配置!');
+            throw new \Exception('CODE:81001 缺少配置!');
         }
     }
 }
