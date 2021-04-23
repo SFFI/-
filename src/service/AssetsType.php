@@ -11,8 +11,6 @@ namespace sffi\service;
  */
 class AssetsType extends Base
 {
-    protected $controler = 'assets_type';
-
     protected $argAddAssetsType=[
         'id', 'assetsType'
     ];
