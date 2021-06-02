@@ -23,13 +23,19 @@ use sffi\util\RequestUtil;
  */
 class Factory
 {
+    public static $apps = [];
     public static function make($name, array $config)
     {
-        $application = "sffi\\service\\{$name}";
+        if (!in_array($name, self::$apps)) {
 
-        $config = RequestUtil::getConfig($config);
+            $application = "sffi\\service\\{$name}";
 
-        return new $application(...$config);
+            $config = RequestUtil::getConfig($config);
+
+            self::$apps[$name] = new $application(...$config);
+        }
+
+        return self::$apps[$name];
     }
 
     /**
