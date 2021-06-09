@@ -24,6 +24,7 @@ use sffi\util\RequestUtil;
 class Factory
 {
     public static $apps = [];
+
     public static function make($name, array $config)
     {
         if (!in_array($name, self::$apps)) {

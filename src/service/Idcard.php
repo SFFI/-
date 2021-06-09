@@ -5,7 +5,7 @@ namespace sffi\service;
 
 /**
  * Class Idcard
- * @method array applyAuth(int $id,int $card_id,string $callback,$extra='') 申请认证
+ * @method array applyAuth(int $id,int $card_id,string $callback,$extra='',$type=0) 申请认证
  * @method array query(int $id,int $card_id)
  * @method array createCard($idcard_no,$true_name,$start_time='',$end_time='',$nation='',$address='',$depart='',$card_dn_no='')
  * @method array authCallback($BizToken)
@@ -17,7 +17,7 @@ namespace sffi\service;
 class Idcard extends Base
 {
     protected $argApplyAuth = [
-        'id','card_id','callback','extra'
+        'id','card_id','callback','extra', 'type'
     ];
     protected $argQuery = [
         'id','card_id'
