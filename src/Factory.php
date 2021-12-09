@@ -8,6 +8,7 @@ use sffi\service\AssetsType;
 use sffi\service\Idcard;
 use sffi\service\Info;
 use sffi\service\Member;
+use sffi\service\PlatformApp;
 use sffi\service\Third;
 use sffi\util\RequestUtil;
 
@@ -19,6 +20,7 @@ use sffi\util\RequestUtil;
  * @method static Idcard Idcard($url='',$key='')              证件
  * @method static Info Info($url='',$key='')                  证件
  * @method static Third Third($url='',$key='')                第三方信息
+ * @method static PlatformApp Platform($url='',$key='')                第三方信息
  * @package sffi
  */
 class Factory

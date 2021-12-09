@@ -12,8 +12,15 @@ class  Base
 {
     protected $request;
     protected $key;
-    protected $controler;
+    protected $controller;
     protected $arg;
+    protected $appId;
+
+    public function setApp($appId): Base
+    {
+        $this->appId = $appId;
+        return $this;
+    }
 
     public function __construct($url,$key)
     {
@@ -37,7 +44,7 @@ class  Base
 
     protected function request($name,$args)
     {
-        $controller = ($this->controler?:strtolower(basename(str_replace('\\','/',static::class))));
+        $controller = ($this->controller?:strtolower(basename(str_replace('\\','/',static::class))));
         $requestGet = ['idcard.query'];
         $method = in_array($controller.'.'.$name,$requestGet) ? 'GET' : 'POST';
         if ($method == 'GET'){
@@ -45,7 +52,7 @@ class  Base
         }
         $result = $this->request->post('/'.$controller.'/'.$name.(isset($argstring)?'?'.$argstring:''),
             $args, $method,
-            ['PLATFORM-KEY'=>$this->key,'Content-type'=>'application/x-www-form-urlencoded']);
+            ['PLATFORM-KEY'=>$this->key,'PLATFORM-APP-ID' => $this->appId ??'','Content-type'=>'application/x-www-form-urlencoded']);
         if ($result['code'] == 1){
             return $result['data'];
         }
