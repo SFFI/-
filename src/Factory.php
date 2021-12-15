@@ -3,6 +3,7 @@
 
 namespace sffi;
 
+use Exception;
 use sffi\service\Assets;
 use sffi\service\AssetsType;
 use sffi\service\Idcard;
@@ -27,6 +28,9 @@ class Factory
 {
     public static $apps = [];
 
+    /**
+     * @throws Exception
+     */
     public static function make($name, array $config)
     {
         if (!in_array($name, self::$apps)) {
@@ -45,11 +49,12 @@ class Factory
      * Dynamically pass methods to the application.
      *
      * @param string $name
-     * @param array  $arguments
+     * @param array $arguments
      *
      * @return mixed
+     * @throws Exception
      */
-    public static function __callStatic($name, $arguments)
+    public static function __callStatic(string $name, array $arguments)
     {
         return self::make($name, $arguments);
     }
