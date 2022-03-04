@@ -81,7 +81,7 @@ class Member extends Base
             if (is_array($item)){
                 array_push($keys, $item[0]);
                 array_push($types, $item[1]);
-                array_push($values, is_array($item[2]) ? implode(',', $item[2]) : $item[2]);
+                $values[] = is_array($item[2]) ? implode(',', $item[2]) : $item[2];
             }else{
                 array_push($keys, $key);
                 array_push($types, '=');
@@ -89,9 +89,9 @@ class Member extends Base
             }
         }
         return $this->request(__FUNCTION__,[
-            'filterField'=>implode('|',$keys),
-            'type'=>implode('|',$types),
-            'filterValue'=>implode('|',$values),
+            'filterField'=>implode('|', $keys),
+            'type'=>implode('|', $types),
+            'filterValue'=>implode('|', $values),
             'with'=>$with,
             'page'=>$page,
             'size'=>$size
