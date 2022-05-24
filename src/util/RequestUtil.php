@@ -41,9 +41,11 @@ class RequestUtil
     public static function getConfig($config)
     {
         if ($config) return $config;
-        if (function_exists('env')){
+        if (function_exists('root_path')) {
+            $path = root_path().'/extend';
+        } elseif (function_exists('env')) {
             $path = env('app_path').'/../extend';
-        }else{
+        } else {
             $path = __DIR__.'/../../../../../extend';
         }
         if (is_dir($path) && is_file($path.'/member.php')){

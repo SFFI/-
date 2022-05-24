@@ -11,6 +11,7 @@ namespace sffi\service;
  * @method array update($id,$data) 编辑第三方信息
  * @method array bindMember($unionid,$openid,$member_id,$type) 绑定用户
  * @method array unBindMember($unionid,$openid,$member_id,$type) 解绑用户
+ * @method array queryMember(string $open_id) 查询用户
  * @package sffi\service
  */
 class Third extends Base
@@ -60,5 +61,9 @@ class Third extends Base
 
     protected $argQueryMulti = [
         'member'
+    ];
+
+    protected $argQueryMember = [
+        'open_id'
     ];
 }
